@@ -1,54 +1,73 @@
 <?php
+session_start();
 include "db.php";
 
+$error = "";
 if(isset($_POST['register'])){
-
-$username=$_POST['username'];
-$password=$_POST['password'];
-
-$query="INSERT INTO users(username,password)
-VALUES('$username','$password')";
-
-mysqli_query($conn,$query);
-
-header("Location:login.php");
-
+    $username = trim($_POST['username'] ?? '');
+    $password = $_POST['password'] ?? '';
+    
+    // Check if user exists
+    $stmt = $conn->prepare("SELECT id FROM users WHERE username=?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if($result->num_rows > 0) {
+        $error = "Username already exists";
+    } else {
+        $stmt = $conn->prepare("INSERT INTO users(username, password) VALUES(?, ?)");
+        $stmt->bind_param("ss", $username, $password);
+        if($stmt->execute()) {
+            header("Location: login.php?success=1");
+            exit();
+        } else {
+            $error = "Database Error: " . $conn->error;
+        }
+    }
+    $stmt->close();
 }
 ?>
-
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
-<title>Register</title>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <title>Register | Smart Resource Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gravity.css">
 </head>
+<body class="gravity-theme" style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
 
-<body class="bg-light">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
 
-<div class="container mt-5">
+    <div class="glass-panel text-center" style="max-width: 450px; width: 90%; z-index: 10;">
+        <div class="gravity-header mb-4">
+            <h2 class="gravity-title" style="font-size: 2.5rem;">Join Gravity</h2>
+            <p class="gravity-subtitle" style="font-size: 0.9rem;">Create a new account</p>
+        </div>
 
-<div class="card p-4 shadow">
+        <?php if($error): ?>
+            <div class="alert alert-danger" style="background: rgba(220,53,69,0.2); border-color: rgba(220,53,69,0.5); color: #ffb3b3;"><?php echo $error; ?></div>
+        <?php endif; ?>
 
-<h3 class="mb-3">Register</h3>
+        <form method="POST">
+            <div class="mb-3 text-start">
+                <label class="form-label" style="color: var(--text-muted);">Username</label>
+                <input class="form-control" name="username" required style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white;">
+            </div>
+            
+            <div class="mb-4 text-start">
+                <label class="form-label" style="color: var(--text-muted);">Password</label>
+                <input class="form-control" type="password" name="password" required style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white;">
+            </div>
 
-<form method="POST">
-
-<input class="form-control mb-3" name="username" placeholder="Username">
-
-<input class="form-control mb-3" type="password" name="password" placeholder="Password">
-
-<button class="btn btn-success" name="register">Register</button>
-
-</form>
-
-</div>
-
-</div>
+            <button class="btn w-100 mb-4" name="register" style="background: linear-gradient(to right, var(--accent-1), var(--accent-2)); border: none; font-weight: 600; color: #fff; padding: 0.75rem; transition: transform 0.2s;">Create Account</button>
+            
+            <a href="login.php" style="color: var(--text-muted); text-decoration: none; font-size: 0.95rem; display: block;">Already have an account? <span style="color: var(--accent-1);">Log In</span></a>
+        </form>
+    </div>
 
 </body>
-
 </html>

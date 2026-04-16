@@ -1,5 +1,115 @@
 <?php
+session_start();
 include "db.php";
+
+if(isset($_POST['login'])){
+
+$username=$_POST['username'];
+$password=$_POST['password'];
+
+$query="SELECT * FROM users WHERE username='$username' AND password='$password'";
+$result=mysqli_query($conn,$query);
+
+if(mysqli_num_rows($result)>0){
+
+$_SESSION['user']=$username;
+
+}else{
+$error="Invalid login";
+}
+
+}
+
+if(isset($_POST['register'])){
+
+$username=$_POST['username'];
+$password=$_POST['password'];
+
+$query="INSERT INTO users(username,password)
+VALUES('$username','$password')";
+
+mysqli_query($conn,$query);
+
+$success="Account created! Please login.";
+
+}
+
+if(isset($_GET['logout'])){
+session_destroy();
+header("Location:index.php");
+}
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Smart Resource Tracker</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+<?php if(!isset($_SESSION['user'])){ ?>
+
+<div class="row">
+
+<!-- LOGIN -->
+
+<div class="col-md-6">
+
+<div class="card p-4 shadow">
+
+<h3>Login</h3>
+
+<form method="POST">
+
+<input class="form-control mb-3" name="username" placeholder="Username">
+
+<input class="form-control mb-3" type="password" name="password" placeholder="Password">
+
+<button class="btn btn-primary" name="login">Login</button>
+
+</form>
+
+<?php if(isset($error)){ echo "<p class='text-danger'>$error</p>"; } ?>
+
+</div>
+
+</div>
+
+<!-- REGISTER -->
+
+<div class="col-md-6">
+
+<div class="card p-4 shadow">
+
+<h3>Register</h3>
+
+<form method="POST">
+
+<input class="form-control mb-3" name="username" placeholder="Username">
+
+<input class="form-control mb-3" type="password" name="password" placeholder="Password">
+
+<button class="btn btn-success" name="register">Register</button>
+
+</form>
+
+<?php if(isset($success)){ echo "<p class='text-success'>$success</p>"; } ?>
+
+</div>
+
+</div>
+
+</div>
+
+<?php } else { 
 
 $result = mysqli_query($conn,"SELECT * FROM usage_data");
 
@@ -8,65 +118,71 @@ $water = [];
 $energy = [];
 
 while($row = mysqli_fetch_assoc($result)){
-
 $dates[] = $row['date'];
 $water[] = $row['water_usage'];
 $energy[] = $row['energy_usage'];
-
 }
 ?>
 
-<!DOCTYPE html>
-<html>
+<!-- MAIN TRACKER PAGE -->
 
-<head>
+<h2>Welcome <?php echo $_SESSION['user']; ?></h2>
 
-<title>Dashboard</title>
+<a href="?logout=true" class="btn btn-danger mb-3">Logout</a>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div class="card p-4 shadow">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<form action="save.php" method="POST">
 
-</head>
+<label>Date</label>
+<input class="form-control mb-3" type="date" name="date">
 
-<body class="bg-light">
+<label>Water Usage (Liters)</label>
+<input class="form-control mb-3" type="number" name="water">
 
-<div class="container mt-5">
+<label>Energy Usage (kWh)</label>
+<input class="form-control mb-3" type="number" step="0.1" name="energy">
 
-<h2 class="text-center mb-4">Usage Dashboard</h2>
+<button class="btn btn-success">Save Data</button>
 
-<canvas id="usageChart"></canvas>
+<a href="gravity.php" class="btn btn-info">Gravity Dashboard</a>
 
-<br>
-
-<a href="index.php" class="btn btn-secondary">Back</a>
+</form>
 
 </div>
 
+<div class="card p-4 shadow mt-4">
+    <h3 class="text-center mb-4">Usage Dashboard</h3>
+    <canvas id="usageChart"></canvas>
+</div>
+
 <script>
-
 const ctx = document.getElementById('usageChart');
-
-new Chart(ctx, {
-type: 'line',
-data: {
-labels: <?php echo json_encode($dates); ?>,
-datasets: [
-{
-label: 'Water Usage (L)',
-data: <?php echo json_encode($water); ?>,
-borderWidth: 3
-},
-{
-label: 'Energy Usage (kWh)',
-data: <?php echo json_encode($energy); ?>,
-borderWidth: 3
+if (ctx) {
+    new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: <?php echo json_encode($dates ?? []); ?>,
+            datasets: [
+                {
+                    label: 'Water Usage (L)',
+                    data: <?php echo json_encode($water ?? []); ?>,
+                    borderWidth: 3
+                },
+                {
+                    label: 'Energy Usage (kWh)',
+                    data: <?php echo json_encode($energy ?? []); ?>,
+                    borderWidth: 3
+                }
+            ]
+        }
+    });
 }
-]
-}
-});
-
 </script>
+
+<?php } ?>
+
+</div>
 
 </body>
 </html>
