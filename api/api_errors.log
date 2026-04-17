@@ -1,0 +1,82 @@
+[2026-04-16 21:27:50] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=5 recent=5
+[2026-04-16 21:28:21] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=6 recent=6
+[2026-04-16 21:28:24] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=6 recent=6
+[2026-04-16 21:29:47] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=6 recent=6
+[2026-04-16 21:38:16] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=6 recent=6
+[2026-04-16 21:38:22] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=5 recent=5
+[2026-04-16 21:38:26] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=4 recent=4
+[2026-04-16 21:38:28] GET summary for user 3 | resource_summary=1 device_wise=2 hourly=3 recent=3
+[2026-04-16 21:38:31] GET summary for user 3 | resource_summary=1 device_wise=2 hourly=2 recent=2
+[2026-04-16 21:38:39] GET summary for user 3 | resource_summary=1 device_wise=1 hourly=1 recent=1
+[2026-04-16 21:38:41] GET summary for user 3 | resource_summary=0 device_wise=0 hourly=0 recent=0
+[2026-04-16 21:39:57] GET summary for user 3 | resource_summary=1 device_wise=1 hourly=1 recent=1
+[2026-04-16 21:40:42] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=2 recent=2
+[2026-04-16 21:49:51] GET summary for user 3 | resource_summary=0 device_wise=0 hourly=0 recent=0
+[2026-04-16 21:50:52] GET summary for user 3 | resource_summary=1 device_wise=1 hourly=1 recent=1
+[2026-04-16 21:51:52] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=2 recent=2
+[2026-04-16 21:52:20] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=3 recent=3
+[2026-04-16 21:56:58] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=3 recent=3
+[2026-04-16 21:56:58] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=3 recent=3
+[2026-04-16 21:56:58] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=3 recent=3
+[2026-04-16 21:59:13] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=3 recent=3
+[2026-04-16 22:06:50] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=3 recent=3
+[2026-04-16 22:11:56] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=3 recent=3
+[2026-04-16 22:17:12] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=3 recent=3
+[2026-04-16 22:17:34] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=4 recent=4
+[2026-04-16 22:25:55] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=5 recent=5
+[2026-04-16 22:26:22] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=5 recent=5
+[2026-04-16 22:26:52] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=6 recent=6
+[2026-04-16 22:27:00] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=5 recent=5
+[2026-04-16 22:27:05] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=4 recent=4
+[2026-04-16 22:27:08] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=3 recent=3
+[2026-04-16 22:27:10] GET summary for user 3 | resource_summary=1 device_wise=1 hourly=2 recent=2
+[2026-04-16 22:27:13] GET summary for user 3 | resource_summary=1 device_wise=1 hourly=1 recent=1
+[2026-04-16 22:27:16] GET summary for user 3 | resource_summary=0 device_wise=0 hourly=0 recent=0
+[2026-04-16 22:57:43] GET summary for user 3 | resource_summary=0 device_wise=0 hourly=0 recent=0
+[2026-04-16 22:59:09] GET summary for user 3 | resource_summary=0 device_wise=0 hourly=0 recent=0
+[2026-04-16 23:00:27] GET summary for user 3 | resource_summary=1 device_wise=1 hourly=1 recent=1
+[2026-04-16 23:00:31] GET summary for user 3 | resource_summary=1 device_wise=1 hourly=1 recent=1
+[2026-04-16 23:08:29] GET summary for user 3 | resource_summary=1 device_wise=1 hourly=1 recent=1
+[2026-04-16 23:12:08] GET summary for user 3 | resource_summary=1 device_wise=1 hourly=1 recent=1
+[2026-04-16 23:12:22] GET summary for user 3 | resource_summary=1 device_wise=1 hourly=1 recent=1
+[2026-04-16 23:12:46] GET summary for user 3 | resource_summary=1 device_wise=1 hourly=2 recent=2
+[2026-04-16 23:12:58] GET summary for user 3 | resource_summary=1 device_wise=1 hourly=1 recent=1
+[2026-04-16 23:13:01] GET summary for user 3 | resource_summary=0 device_wise=0 hourly=0 recent=0
+[2026-04-16 23:14:22] GET summary for user 3 | resource_summary=1 device_wise=1 hourly=1 recent=1
+[2026-04-16 23:18:37] GET summary for user 3 | resource_summary=1 device_wise=1 hourly=1 recent=1
+[2026-04-16 23:19:24] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=2 recent=2
+[2026-04-16 23:34:14] GET summary for user 3 | resource_summary=2 device_wise=2 hourly=2 recent=2
+[2026-04-16 23:36:35] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=2 recent=3
+[2026-04-16 23:37:23] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=2 recent=4
+[2026-04-16 23:37:48] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=2 recent=5
+[2026-04-16 23:38:04] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=3 recent=6
+[2026-04-16 23:38:23] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=3 recent=6
+[2026-04-16 23:38:38] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=3 recent=6
+[2026-04-16 23:38:41] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=3 recent=6
+[2026-04-16 23:42:43] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=3 recent=6
+[2026-04-16 23:49:52] Alert sent via email to tanishq25comp@student.mes.ac.in
+[2026-04-16 23:49:54] Alert sent via email to tanishq25comp@student.mes.ac.in
+[2026-04-16 23:52:30] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=3 recent=6
+[2026-04-16 23:57:21] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=3 recent=6
+[2026-04-16 23:58:05] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=3 recent=6
+[2026-04-16 23:58:07] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=3 recent=6
+[2026-04-16 23:58:57] GET summary for user 3 | resource_summary=1 device_wise=2 hourly=2 recent=5
+[2026-04-16 23:59:58] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=3 recent=6
+[2026-04-17 00:00:55] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=4 recent=7
+[2026-04-17 00:02:56] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=5 recent=8
+[2026-04-17 00:05:17] Alert sent via email to tanishq25comp@student.mes.ac.in
+[2026-04-17 00:05:24] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=5 recent=8
+[2026-04-17 00:08:36] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=5 recent=8
+[2026-04-17 00:13:15] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=5 recent=9
+[2026-04-17 00:13:39] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=5 recent=9
+[2026-04-17 00:20:53] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=5 recent=9
+[2026-04-17 00:21:18] Alert sent via email to tanishq25comp@student.mes.ac.in
+[2026-04-17 00:28:34] Reset email sent to tanishq25comp@student.mes.ac.in
+[2026-04-17 00:31:10] GET summary for user 4 | resource_summary=0 device_wise=0 hourly=0 recent=0
+[2026-04-17 00:31:21] Reset email sent to tanishqpote12345@gmail.com
+[2026-04-17 00:32:47] GET summary for user 4 | resource_summary=0 device_wise=0 hourly=0 recent=0
+[2026-04-17 06:16:04] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=5 recent=9
+[2026-04-17 06:16:41] GET summary for user 3 | resource_summary=2 device_wise=3 hourly=5 recent=9
+[2026-04-17 06:21:16] GET summary for user 3 | resource_summary=3 device_wise=4 hourly=6 recent=10
+[2026-04-17 08:26:31] Reset email sent to tanishqpote12345@gmail.com
+[2026-04-17 08:27:47] GET summary for user 3 | resource_summary=3 device_wise=4 hourly=6 recent=10

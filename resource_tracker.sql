@@ -58,48 +58,74 @@ INSERT INTO `users` (`id`, `username`, `password`, `auth_token`, `token_expiry`)
 (2, 'tanishqpote', '12345678', NULL, NULL);
 
 --
--- Indexes for dumped tables
+-- Table structure for table `devices`
 --
+CREATE TABLE `devices` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `resource_type` varchar(50) NOT NULL,
+  `consumption_rate` float NOT NULL,
+  `unit` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
 
 --
--- Indexes for table `usage_data`
+-- Table structure for table `device_usage`
 --
-ALTER TABLE `usage_data`
+CREATE TABLE `device_usage` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `device_id` int(11) NOT NULL,
+  `start_time` datetime NOT NULL,
+  `end_time` datetime NOT NULL,
+  `duration` float NOT NULL,
+  `consumption` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Indexes for table `devices`
+--
+ALTER TABLE `devices`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indexes for table `users`
+-- Indexes for table `device_usage`
 --
-ALTER TABLE `users`
+ALTER TABLE `device_usage`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `device_id` (`device_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT for table `devices`
 --
+ALTER TABLE `devices`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `usage_data`
+-- AUTO_INCREMENT for table `device_usage`
 --
-ALTER TABLE `usage_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+ALTER TABLE `device_usage`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- Constraints for table `devices`
 --
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `devices`
+  ADD CONSTRAINT `devices_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for dumped tables
+-- Constraints for table `device_usage`
 --
+ALTER TABLE `device_usage`
+  ADD CONSTRAINT `device_usage_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `device_usage_ibfk_2` FOREIGN KEY (`device_id`) REFERENCES `devices` (`id`) ON DELETE CASCADE;
 
---
--- Constraints for table `usage_data`
---
-ALTER TABLE `usage_data`
-  ADD CONSTRAINT `usage_data_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

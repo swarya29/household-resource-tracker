@@ -5,19 +5,20 @@ include "db.php";
 $error = "";
 if(isset($_POST['register'])){
     $username = trim($_POST['username'] ?? '');
+    $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
     
-    // Check if user exists
-    $stmt = $conn->prepare("SELECT id FROM users WHERE username=?");
-    $stmt->bind_param("s", $username);
+    // Check if user or email exists
+    $stmt = $conn->prepare("SELECT id FROM users WHERE username=? OR email=?");
+    $stmt->bind_param("ss", $username, $email);
     $stmt->execute();
     $result = $stmt->get_result();
     
     if($result->num_rows > 0) {
-        $error = "Username already exists";
+        $error = "Username or Email already exists";
     } else {
-        $stmt = $conn->prepare("INSERT INTO users(username, password) VALUES(?, ?)");
-        $stmt->bind_param("ss", $username, $password);
+        $stmt = $conn->prepare("INSERT INTO users(username, email, password) VALUES(?, ?, ?)");
+        $stmt->bind_param("sss", $username, $email, $password);
         if($stmt->execute()) {
             header("Location: login.php?success=1");
             exit();
@@ -56,6 +57,11 @@ if(isset($_POST['register'])){
             <div class="mb-3 text-start">
                 <label class="form-label" style="color: var(--text-muted);">Username</label>
                 <input class="form-control" name="username" required style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white;">
+            </div>
+            
+            <div class="mb-3 text-start">
+                <label class="form-label" style="color: var(--text-muted);">Email Address</label>
+                <input class="form-control" type="email" name="email" required style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white;">
             </div>
             
             <div class="mb-4 text-start">
