@@ -225,5 +225,3 @@ EcoTrack follows a **client-server architecture**:
 EcoTrack is a practical solution for tracking and managing resource usage. It combines data visualization, user management, and real-time calculations to help users understand and optimize their consumption habits.
 
 ---
-
->>>>>>> a08372f8a3cffcac69ebd8a2a2a4e7e0811f047b
