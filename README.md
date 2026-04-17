@@ -1,8 +1,6 @@
 <<<<<<< HEAD
 # 🌌 EcoTrack - Household Resource Tracker
-
 EcoTrack is a premium, full-stack web application designed to help households monitor and manage their consumption of vital resources like **Electricity, Water, and Gas**. With a focus on modern aesthetics and real-time analytics, EcoTrack empowers users to reduce their carbon footprint and save on utility costs.
-
 ![Registration Preview](images/registration.png)
 ![Login page](images/login.png)
 ![Reset password page](reset.png)
